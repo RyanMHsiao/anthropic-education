@@ -52,3 +52,22 @@ The system prompt often takes the form of a persona with desired traits. So, whe
 *Even a good system prompt cannot completely prevent bad responses, but a flawed system prompt can greatly increase bad responses in ways that may not be immediately obvious*.
 *For a well-known example of a system prompt causing problems, the cause of the Grok AI "MechaHitler" incident of 2025 has been identified as being the following line: `"- The response should not shy away from making claims which are politically incorrect, as long as they are well substantiated."`*.
 *Be sure to test any new system prompt thoroughly before deployment*.
+
+## Temperature
+
+Covers [Temperature](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287728).
+
+LLMs work by predicting the most likely tokens to follow a sequence.
+A list of possible tokens is calculated, each with a given probability.
+The token with the highest probability is considered the best, but in many applications simply choosing the highest probability token every time results in output that is less useful than randomly sampling from all possibilities.
+
+The sampling procedure used can be described by a "temperature," a number from 0.0 to 1.0 describing how concentrated the distribution should be on the options with the highest probability.
+A low temperature represents more concentration, with the minimum of 0.0 causing the most likely token to always be chosen. A higher temperature results in a less concentrated distribution.
+In practice, the temperature corresponds to how "creative" the model tends to be, with creativity increasing as temperature increases.
+
+Different tasks are best performed with different temperature values:
+- Low temperature (0.0 - 0.3) is appropriate for tasks like factual responses, coding assistance, data extraction, and content moderation
+- Medium temperature (0.4 - 0.7) is appropriate for tasks like summarization, educational content, problem-solving, and creative writing with constraints
+- High temperature (0.8 - 1.0) is appropriate for tasks like brainstorming, creative writing, marketing content, and joke generation
+
+For an example of how temperature can have an impact on generated output, at the time of the article's creation, prompts asking for movie ideas consistently resulted in suggestions for a film about a time-travelling archaeologist when low temperature was used.
