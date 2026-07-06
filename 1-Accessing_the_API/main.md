@@ -71,3 +71,25 @@ Different tasks are best performed with different temperature values:
 - High temperature (0.8 - 1.0) is appropriate for tasks like brainstorming, creative writing, marketing content, and joke generation
 
 For an example of how temperature can have an impact on generated output, at the time of the article's creation, prompts asking for movie ideas consistently resulted in suggestions for a film about a time-travelling archaeologist when low temperature was used.
+
+## Response streaming
+
+Covers [Response streaming](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287734)
+
+A full response can take a while to generate, so to reduce apparent latency the API is able to send the response in pieces while generation is in-progress.
+*This article is more focused on technical details and application rather than abstract concepts, but the main takeaway should be that text generation is slow and that streaming can be used to prevent user frustration at latency*.
+
+## Structured data
+
+Covers [Structured data](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287732) and [Structured data exercise](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287729).
+
+LLMs tend to generate explanation and justification for their responses, which can take the form of a lengthy preamble or unnecessary code comments.
+When a specific format of structured data is desired, the additional detail not only wastes tokens, but also invalidates the format of the data.
+
+A specific structure can be encouraged by prefilling part of the response message before making a request.
+For example, starting the assistant message with "\`\`\`json" makes the model start by generating a JSON object rather than giving any preamble.
+The generation can be set to stop at "\`\`\`" to avoid format-invalidating text after the JSON object.
+
+Through similar principles as a system prompt, some constraints can be added by putting some text before the start of the structured data.
+For example, code without any comments can be generated with the following prefill:
+"Here is the solution code in a single block without any comments. \`\`\`py"
