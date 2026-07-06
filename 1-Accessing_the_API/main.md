@@ -38,3 +38,17 @@ High-level procedure for a basic chatbot:
 4. Add the generated text to the list of messages
 5. Display the newly generated text to the user
 6. Repeat from #1
+
+## System prompts
+
+Covers [System prompts](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287733) and [System prompt exercises](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287724).
+
+System prompts provide general instructions for what generated responses should and should not be like for a whole conversation.
+A good system prompt helps the model provide relevant and appropriate responses to fulfill the user needs.
+*Be wary of the fact that an adversarial user can create prompts that cause the model to disobey instructions in the system prompt*.
+
+The system prompt often takes the form of a persona with desired traits. So, when asking for help with Python code, an appropriate system prompt may be `"You are a Python engineer who writes very concise code"`.
+
+*Even a good system prompt cannot completely prevent bad responses, but a flawed system prompt can greatly increase bad responses in ways that may not be immediately obvious*.
+*For a well-known example of a system prompt causing problems, the cause of the Grok AI "MechaHitler" incident of 2025 has been identified as being the following line: `"- The response should not shy away from making claims which are politically incorrect, as long as they are well substantiated."`*.
+*Be sure to test any new system prompt thoroughly before deployment*.
