@@ -11,15 +11,15 @@ High-level overview of the text generation process:
 - Generation: the most probable tokens to follow the end of input are generated (*like an advanced version of a smartphone's word prediction*)
 
 Requests must include at least the following fields: (*specific to Anthropic-style API, which is implemented by some other vendors*)
-1. API key (should be kept in a hidden `.env` file server-side)
-2. Model name
-3. Messages, in format of a list of alternating user and assistant message objects
-4. Max tokens cutoff. The model does not try to reach the limit and may produce shorter messages.
+- API key (should be kept in a hidden `.env` file server-side)
+- Model name
+- Messages, in format of a list of alternating user and assistant message objects
+- Max tokens cutoff. The model does not try to reach the limit and may produce shorter messages.
 
 The API response contains the following:
-1. Message, the generated text
-2. Usage, a count of input and output tokens
-3. Stop reason. *Contains information on whether the request was successful.*
+- Message, the generated text
+- Usage, a count of input and output tokens
+- Stop reason. *Contains information on whether the request was successful.*
 
 The Anthropic SDK provides helpful functions for accessing the API *and works for non-Anthropic vendors which provide an Anthropic-style API*. Sample code is provided in [Making a request](https://anthropic.skilljar.com/claude-with-the-    anthropic-api/287725).
 
