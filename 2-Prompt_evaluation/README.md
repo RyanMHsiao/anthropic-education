@@ -26,12 +26,12 @@ Key steps of a tpyical eval workflow:
 Covers [Generating test datasets](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287739).
 
 The user messages that potential system prompts are tested on can be generated mostly automatically.
-An LLM can be used to generate structured data containing sample messages fulfilling some desired constraints.
+An AI model (usually a fast and cheap model) can be used to generate structured data containing sample messages fulfilling some desired constraints.
 The structured data can then be processed similarly to unit tests for classical programming tasks.
 
 ## Grading 
 
-Covers [Running the eval](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287743), [Model based grading](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287742), and [Code based grading](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737).
+Covers [Running the eval](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287743), [Model based grading](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287742), [Code based grading](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737), and [Exercise on prompt evals](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287738).
 
 The grading procedure should, for each piece of test data, output the generated response and a score for the generated response.
 There are three main approaches to assigning scores to prompts, each with different strengths.
@@ -40,7 +40,6 @@ There are three main approaches to assigning scores to prompts, each with differ
 - Model graders take the generated responses and grade them by using another LLM call. They are able to quickly evaluate flexible criteria and are suited to score the level of task-following from a model.
 - Human graders are the most flexible option, but have high cost for evaluating large amounts of data.
 
-## WIP
-
-[Exercise on prompt evals](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287738)
-[Code based grading](https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737)
+A simple form of code grading is to try parsing the generated response and test for syntax errors.
+For model graders, there should be some criteria for scoring included in the testing prompt.
+Model graders can also generate text evaluations that explain more than just a numerical score.
