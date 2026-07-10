@@ -42,4 +42,16 @@ Covers [Structure with XML tags](https://anthropic.skilljar.com/claude-with-the-
 
 *XML tags and few-shot prompting are similar to Markdown in being specific methods of formatting that are generally useful*.
 
-WIP
+XML tags improve prompts by making them more easily parseable for the model.
+For example, an eval prompt may include `<task_description>`, `<task_inputs>`, and `<criteria>` clearly marked with XML tags.
+The benefit comes not in following any pre-defined XML schema, but in clearly marking the purpose of each section.
+A specific tag name like `<sales_records>` is better than a generic one like `<data>`.
+
+Another structure to use in prompts is one or a few examples included in the prompt.
+Example input can be incuded in a tag like `<sample_input>` with the desired response in `<ideal_output>`.
+Showing what you want instead of just describing it helps to reduce ambiguity and lead to relevant responses.
+Including edgecases also helps to ensure that the response is appropriate for specific potentially problematic situations.
+*Including examples in an LLM prompt is known as multi-shot prompting or in-context learning*.
+*It is technically different but conceptually similar to few-shot learning, in which a model trained on a general problem is given a small number of data points for a new class of problem*.
+*The concept is that an LLM is already trained on the general problem of text generation, and including examples helps to specialize the text generation for the task at hand*.
+*Including examples in the prompt adds more tokens, but comes at a much lower upfront cost than fine-tuning the model through the traditional method of training to update parameters*.
